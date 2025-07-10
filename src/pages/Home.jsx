@@ -13,7 +13,7 @@ const Home = () => {
         {/* Left side */}
         <div>
           {/* Name */}
-          <h2 className="text-white font-semibold font-serif ml-[5rem] mt-[1rem]">
+          <h2 className="text-white font-semibold font-serif ml-[5.3rem] mt-[1.4rem]">
             Aditya Shee
           </h2>
           {/* Welcome to my portfolio */}
@@ -54,10 +54,10 @@ const Home = () => {
           </div>
         </div>
         {/* Right side */}
-        <div className="flex justify-between">
+        <div className="flex">
           {/* Nav Section */}
-          <div className="flex gap-[2rem] mt-[1rem] mr-[20rem] cursor-pointer text-white text-lg">
-            <div>Home</div>
+          <div className="flex gap-[2rem] mt-[1.4rem] mr-[29rem] cursor-pointer text-white text-lg whitespace-nowrap">
+            <div>About Me</div>
             <div>Resume</div>
             <div
               onClick={() => {
@@ -78,11 +78,22 @@ const Home = () => {
               Contact
             </div>
           </div>{" "}
-          {/* Github and LinkedIn */}
-          <div className="flex gap-[1rem] mr-[11rem] mt-[1rem]">
-            <img src="/Github.png" alt="" className="w-[6rem] h-[5rem] object-cover" />
-            <img src="/LinkedIn.png" alt="" className="w-[3rem] h-[3rem] object-cover" />
-          </div>
+          {/* Github and LinkedfIn */}
+          <a href="https://github.com/AdityaShee12">
+            {" "}
+            <img
+              src="/Github.png"
+              alt=""
+              className="absolute w-[2.5rem]  right-[17rem] top-[1.6rem] cursor-pointer"
+            />
+          </a>
+          <a href="https://www.linkedin.com/in/aditya-shee-b742a9322/">
+            <img
+              src="/LinkedIn.png"
+              alt=""
+              className="absolute w-[2.2rem] right-[14rem] top-[1.4rem] cursor-pointer"
+            />
+          </a>
         </div>
       </div>
       {/* Avatar Section */}

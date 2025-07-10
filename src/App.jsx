@@ -9,6 +9,7 @@ import Skills from "./pages/skills.jsx";
 function App() {
   return (
     <Router>
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
