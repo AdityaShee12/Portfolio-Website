@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import axios from "axios";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
 
@@ -11,85 +14,111 @@ const Contact = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here (EmailJS, backend API, etc.)
-    console.log("Form submitted:", formData);
+    try {
+      await axios.post("http://localhost:5000/api/send", formData);
+      alert("Message sent successfully!");
+    } catch (err) {
+      alert("Failed to send message.");
+    }
   };
 
   return (
     <section
-      id="contact"
-      className="w-full bg-gray-50 dark:bg-gray-900 py-16 px-6 md:px-12">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-12">
-        {/* Left: Contact Info */}
-        <div className="flex-1 space-y-6">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
-            Get in Touch
-          </h2>
-          <p className="text-gray-700 dark:text-gray-300">
-            Have a project in mind or just want to say hello? Feel free to drop
-            a message.
-          </p>
-          <div className="space-y-4 text-gray-700 dark:text-gray-300">
-            <div>
-              <strong>Email:</strong>
-              <p>sheeaditya12@gmail.com</p>
-            </div>
-            <div>
-              <strong>Phone:</strong>
-              <p>+91 89103 84698</p>
-            </div>
-            <div>
-              <strong>Location:</strong>
-              <p>South 24 Parganas, West Bengal, India</p>
-            </div>
+      className="min-h-screen bg-cover bg-center bg-no-repeat text-white flex flex-row"
+      style={{ backgroundImage: "url('/Bg-image.jpeg')" }}>
+      <div className="text-white pt-[5rem] pl-[5.2rem] md:w-1/2">
+        <div className="text-2xl font-bold">Get in Touch</div>
+        <div className="pt-[2rem]">
+          <div className="flex gap-5 text-xl pb-[0.5rem]">
+            <strong>Email:</strong>
+            <p className="flex gap-3">
+              <a href="mailto:sheeaditya12@gmail.com">
+                <FaEnvelope />
+              </a>
+              sheeaditya12@gmail.com
+            </p>
+          </div>
+          <div className="flex gap-5 text-xl pb-[0.5rem]">
+            <strong>Phone:</strong>
+            <p className="flex gap-3">
+              <a href="tel:+918910384698">
+                <FaPhone />
+              </a>
+              +91 89103 84698
+            </p>
+          </div>
+          <div className="flex gap-5 text-xl pb-[0.5rem]">
+            <strong>Location:</strong>
+            <p className="flex gap-3">
+              <FaMapMarkerAlt />
+              South 24 Parganas, WB
+            </p>
           </div>
         </div>
-
-        {/* Right: Contact Form */}
-        <div className="flex-1 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label className="block mb-2 text-sm font-medium">Name</label>
-              <input
-                type="text"
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              />
-            </div>
-            <div>
-              <label className="block mb-2 text-sm font-medium">Email</label>
-              <input
-                type="email"
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              />
-            </div>
-            <div>
-              <label className="block mb-2 text-sm font-medium">Message</label>
-              <textarea
-                name="message"
-                rows="5"
-                required
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full p-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
-              />
-            </div>
-            <button
-              type="submit"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl transition-colors duration-300">
-              Send Message
-            </button>
-          </form>
+        <div className="flex gap-[0.2rem]">
+          <img
+            src="/Github.png"
+            className=" w-[2rem] h-[1.5rem] mt-[0.2rem] cursor-pointer"
+            alt=""
+          />
+          <img
+            src="/LinkedIn.png"
+            className=" w-[2rem] h-[2rem] cursor-pointer"
+            alt=""
+          />
         </div>
+      </div>
+
+      <div className="min-h-screen flex items-center justify-center px-4 md:w-1/2">
+        <form
+          onSubmit={handleSubmit}
+          className="bg-white rounded-2xl shadow-md p-8 w-full max-w-md">
+          <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
+            Contact Me
+          </h2>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Your Name"
+            required
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg"
+          />
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Your Email"
+            required
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg"
+          />
+          <input
+            type="text"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            placeholder="Subject"
+            required
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg"
+          />
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            placeholder="Your Message"
+            required
+            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg resize-none"
+            rows="5"></textarea>
+          <button
+            type="submit"
+            className="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 rounded-lg transition">
+            Send Message
+          </button>
+        </form>
       </div>
     </section>
   );

@@ -27,117 +27,115 @@ const Skills = () => {
     <section
       className="min-h-screen bg-cover bg-center bg-no-repeat text-white"
       style={{ backgroundImage: "url('/Bg-image.jpeg')" }}>
-      <div className="text-[2.3rem] mt-[1rem] ml-[2rem]">My Skills</div>
+      <div className="pt-[5rem] pl-[5.2rem]">
+        <div className="text-[1.5rem] ">My Skills</div>
 
-      <div className="text-[1.7rem] font-semibold mt-[0.5rem] ml-[2rem]">
-        Programming Language :
-      </div>
-      <div className="mt-[1.7rem] ml-[1rem] flex flex-wrap">
-        {programming_language.map((event, index) => (
-          <div key={index} className={zigzagClass(index)}>
-            <img
-              src={event.img}
-              alt={event.name}
-              className="h-[5rem] w-[4rem]"
-            />
-          </div>
-        ))}
-      </div>
+        <div className="text-[1.7rem] mt-[1.5rem] font-semibold">
+          Programming Language :
+        </div>
+        <div className="mt-[2.5rem] flex flex-wrap">
+          {programming_language.map((event, index) => (
+            <div key={index} className={zigzagClass(index)}>
+              <img
+                src={event.img}
+                alt={event.name}
+                className="h-[5rem] w-[4rem]"
+              />
+            </div>
+          ))}
+        </div>
 
-      <div className="text-[1.7rem] font-semibold mt-[1.5rem] ml-[2rem]">
-        Library :
-      </div>
-      <div className="mt-[1.7rem] ml-[1rem] flex flex-wrap">
-        {library.map((event, index) => (
-          <div key={index} className={zigzagClass(index)}>
-            <img
-              src={event.img}
-              alt={event.name}
-              className="h-[5rem] w-[4.9rem]"
-            />
-          </div>
-        ))}
-      </div>
+        <div className="text-[1.7rem] font-semibold mt-[1.5rem]">Library :</div>
+        <div className="mt-[1.7rem] flex flex-wrap">
+          {library.map((event, index) => (
+            <div key={index} className={zigzagClass(index)}>
+              <img
+                src={event.img}
+                alt={event.name}
+                className="h-[5rem] w-[4.9rem]"
+              />
+            </div>
+          ))}
+        </div>
 
-      <div className="text-[1.7rem] font-semibold mt-[1.5rem] ml-[2rem]">
-        Framework :
-      </div>
-      <div className="mt-[1.7rem] ml-[1rem] flex flex-wrap">
-        {framework.map((event, index) => (
-          <div key={index} className={zigzagClass(index)}>
-            <img
-              src={event.img}
-              alt={event.name}
-              className="h-[5rem] w-[5rem]"
-            />
-          </div>
-        ))}
-      </div>
+        <div className="text-[1.7rem] font-semibold mt-[1.5rem]">
+          Framework :
+        </div>
+        <div className="mt-[1.7rem] flex flex-wrap">
+          {framework.map((event, index) => (
+            <div key={index} className={zigzagClass(index)}>
+              <img
+                src={event.img}
+                alt={event.name}
+                className="h-[5rem] w-[5rem]"
+              />
+            </div>
+          ))}
+        </div>
 
-      <div className="text-[1.7rem] font-semibold mt-[1.5rem] ml-[2rem]">
-        Database :
-      </div>
-      <div className="ml-[1rem] flex flex-wrap">
-        {database.map((event, index) => (
-          <div key={index} className={zigzagClass(index)}>
-            <img
-              src={event.img}
-              alt={event.name}
-              className="h-[7rem] w-[9rem]"
-            />
-          </div>
-        ))}
-      </div>
+        <div className="text-[1.7rem] font-semibold mt-[1.5rem]">
+          Database :
+        </div>
+        <div className="flex flex-wrap">
+          {database.map((event, index) => (
+            <div key={index} className={zigzagClass(index)}>
+              <img
+                src={event.img}
+                alt={event.name}
+                className="h-[7rem] w-[9rem]"
+              />
+            </div>
+          ))}
+        </div>
 
-      <div className="text-[1.7rem] font-semibold mt-[1.5rem] ml-[2rem]">
-        Runtime Enviroment :
-      </div>
-      <div className="ml-[1rem] flex flex-wrap">
-        {runtime_enviroment.map((event, index) => (
-          <div key={index} className={zigzagClass(index)}>
-            <img
-              src={event.img}
-              alt={event.name}
-              className="h-[8rem] w-[9rem]"
-            />
-          </div>
-        ))}
-      </div>
+        <div className="text-[1.7rem] font-semibold mt-[1.5rem]">
+          Runtime Enviroment :
+        </div>
+        <div className="flex flex-wrap">
+          {runtime_enviroment.map((event, index) => (
+            <div key={index} className={zigzagClass(index)}>
+              <img
+                src={event.img}
+                alt={event.name}
+                className="h-[8rem] w-[9rem]"
+              />
+            </div>
+          ))}
+        </div>
 
-      <div className="text-[1.7rem] font-semibold mt-[1.5rem] ml-[2rem]">
-        Tools :
-      </div>
-      <div className="ml-[1rem] pt-[1rem] pb-[3rem] flex flex-wrap">
-        {tools.map((event, index) => (
-          <div key={index} className={zigzagClass(index)}>
-            <img
-              src={event.img}
-              alt={event.name}
-              className="h-[4rem] w-[5rem]"
-            />
-          </div>
-        ))}
-      </div>
+        <div className="text-[1.7rem] font-semibold mt-[1.5rem]">Tools :</div>
+        <div className="pt-[1rem] pb-[3rem] flex flex-wrap">
+          {tools.map((event, index) => (
+            <div key={index} className={zigzagClass(index)}>
+              <img
+                src={event.img}
+                alt={event.name}
+                className="h-[4rem] w-[5rem]"
+              />
+            </div>
+          ))}
+        </div>
 
-      {/* Embedded style tag for custom animations */}
-      <style>
-        {`
-          @keyframes floatUpDown {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-          }
+        {/* Embedded style tag for custom animations */}
+        <style>
+          {` 
           @keyframes floatDownUp {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(15px); }
+            0%,100% { transform: translateY(+15px); }
+            50%{transform: translateY(-15px); }
+          }
+          @keyframes floatUpDown {
+            0%,100% { transform: translateY(-15px); }
+            50%{transform: translateY(+15px); }
           }
           .float-up-down {
-            animation: floatUpDown 2s ease-in-out infinite;
+            animation: floatUpDown 4s ease-in-out infinite;
           }
           .float-down-up {
-            animation: floatDownUp 2s ease-in-out infinite;
+            animation: floatDownUp 4s ease-in-out infinite;
           }
         `}
-      </style>
+        </style>
+      </div>
     </section>
   );
 };
