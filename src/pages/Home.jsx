@@ -44,7 +44,9 @@ const Home = () => {
             working on an e-commerce web application.
           </p>
           <div className="bg-violet-800 w-[11rem] h-[2.5rem] text-center text-  rounded-lg pt-[0.4rem] mt-[3rem] cursor-pointer ml-[5.4rem] font-extrabold text-white transition duration-300 ease-in-out hover:scale-110 whitespace-nowrap">
-            Download Resume
+            <a href="/Resume.pdf" download className="text-white">
+              Download Resume
+            </a>
           </div>
         </div>
       </div>

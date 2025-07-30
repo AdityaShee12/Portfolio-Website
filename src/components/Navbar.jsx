@@ -17,7 +17,10 @@ const Navbar = () => {
             }}>
             About Me
           </div>
-          <div>Resume</div>
+          <a href="/Resume.pdf" download className="text-white">
+            Resume
+          </a>
+
           <div
             onClick={() => {
               navigate("/skills");

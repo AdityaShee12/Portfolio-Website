@@ -46,7 +46,7 @@ const Projects = () => {
       techStack: ["React", "Tailwind CSS"],
     },
     {
-      img: "/PasswordGenarator",
+      img: "/PasswordGenarator.png",
       title: "Password Generator",
       description:
         "A password generator is a web application built with React.js that allows users to generate unique passwords.",

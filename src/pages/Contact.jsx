@@ -71,7 +71,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="min-h-screen flex items-center justify-center px-4 md:w-1/2">
+      {/* <div className="min-h-screen flex items-center justify-center px-4 md:w-1/2">
         <form
           onSubmit={handleSubmit}
           className="bg-white rounded-2xl shadow-md p-8 w-full max-w-md">
@@ -119,7 +119,7 @@ const Contact = () => {
             Send Message
           </button>
         </form>
-      </div>
+      </div> */}
     </section>
   );
 };
