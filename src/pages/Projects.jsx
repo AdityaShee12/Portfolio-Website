@@ -1,35 +1,59 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import Lenis from "@studio-freight/lenis";
 
 const Projects = () => {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+    });
+
+    const raf = (time) => {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    };
+
+    requestAnimationFrame(raf);
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
   const projects = [
     {
-      img: "",
-      title: "Password Generator",
+      img: "/ChatBook.png",
+      title: "ChatBook",
       description:
-        "A password generator is a web application built with React.js that allows users to generate unique passwords.",
-      techStack: ["React", "Tailwind CSS"],
+        "A real time chat application using MERN stack with Tailwind CSS and WebSocket.",
+      DeployLink: "https://real-time-chat-application-eta.vercel.app/",
+      techStack: [
+        "Express.js",
+        "Node.js",
+        "MongoDB",
+        "React",
+        "Tailwind CSS",
+        "WebSocket",
+      ],
     },
     {
       img: "/currency-converter.png",
       title: "Currency Converter",
       description:
         "Currency Converter is a web application built with React.js that allows users to convert between various currencies.",
+        DeployLink: "https://vercel.com/aditya-shees-projects/currency-converter",
       techStack: ["React", "Tailwind CSS"],
     },
     {
-      img: "",
-      title: "TODO",
+      img: "/PasswordGenarator",
+      title: "Password Generator",
       description:
-        "A simple and intuitive To-Do list application built with React.js. This project allows users to add, edit, and delete tasks, helping them stay organized and manage their daily activities efficiently.",
+        "A password generator is a web application built with React.js that allows users to generate unique passwords.",
+        DeployLink: "",
       techStack: ["React", "Tailwind CSS"],
     },
-    {
-      img: "",
-      title: "Calculator",
-      description: "A basic calculator built with HTML, CSS, and JavaScript.",
-      techStack: ["React", "Tailwind CSS"],
-    },
+    
   ];
 
   return (
@@ -47,7 +71,7 @@ const Projects = () => {
         const isEven = index % 2 === 0;
 
         return (
-          <div className="flex mt-[0.5rem] justify-start">
+          <div key={index} className="flex mt-[0.5rem] justify-start">
             {" "}
             <div
               key={index}
@@ -81,12 +105,19 @@ const Projects = () => {
               flex-col justify-center gap-2 mr-[3rem] ml-[3.7rem]`}>
                 <div>{project.title}</div>
                 <div>{project.description}</div>
+                <a
+                  href={project.DeployLink}
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Live Link
+                </a>
+
                 <div className="flex gap-3 py-2">
                   {" "}
                   {project.techStack.map((tech, index) => (
                     <div
                       key={index}
-                      className="bg-white text-black h-[1.5rem] w-[4.5rem] text-center rounded-full transition duration-150 hover:-translate-y-1 hover:scale-100">
+                      className="bg-white text-black h-[1.6rem] w-[6rem] px-[1rem] text-center rounded-full transition duration-150 hover:-translate-y-1 hover:scale-100">
                       {tech}
                     </div>
                   ))}
