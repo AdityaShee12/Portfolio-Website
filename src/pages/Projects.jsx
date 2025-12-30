@@ -21,13 +21,29 @@ const Projects = () => {
       lenis.destroy();
     };
   }, []);
+
   const projects = [
     {
-      img: "/ChatBook.png",
-      title: "ChatBook",
+      img: "/LetterBee.png",
+      title: "LetterBee",
       description:
         "A real time chat application using MERN stack with Tailwind CSS and WebSocket.",
-      DeployLink: "https://real-time-chat-application-eta.vercel.app/",
+      DeployLink: "http://43.204.215.142:3000",
+      techStack: [
+        "Express.js",
+        "Node.js",
+        "MongoDB",
+        "React",
+        "Tailwind CSS",
+        "WebSocket",
+      ],
+    },
+    {
+      img: "/ClimaSphere",
+      title: "ClimaSphere",
+      description:
+        "Climasphere is a MERN Stack web application focused on environmental data, analysis, and education. The platform allows users to view weather and air pollution data based on their location, download datasets, access analytical insights, and learn from environment-related knowledge. Some community and AI features are planned for future releases. The main goal is environmental education, not just showing temperature or AQI numbers.",
+      DeployLink: "http://52.66.188.192:3000",
       techStack: [
         "Express.js",
         "Node.js",
@@ -42,7 +58,7 @@ const Projects = () => {
       title: "Currency Converter",
       description:
         "Currency Converter is a web application built with React.js that allows users to convert between various currencies.",
-        DeployLink: "https://vercel.com/aditya-shees-projects/currency-converter",
+      DeployLink: "https://vercel.com/aditya-shees-projects/currency-converter",
       techStack: ["React", "Tailwind CSS"],
     },
     {
@@ -50,10 +66,9 @@ const Projects = () => {
       title: "Password Generator",
       description:
         "A password generator is a web application built with React.js that allows users to generate unique passwords.",
-        DeployLink: "",
+      DeployLink: "",
       techStack: ["React", "Tailwind CSS"],
     },
-    
   ];
 
   return (
