@@ -39,7 +39,7 @@ const Projects = () => {
       ],
     },
     {
-      img: "/ClimaSphere",
+      img: "/ClimaSphere.png",
       title: "ClimaSphere",
       description:
         "Climasphere is a MERN Stack web application focused on environmental data, analysis, and education. The platform allows users to view weather and air pollution data based on their location, download datasets, access analytical insights, and learn from environment-related knowledge. Some community and AI features are planned for future releases. The main goal is environmental education, not just showing temperature or AQI numbers.",
@@ -59,14 +59,6 @@ const Projects = () => {
       description:
         "Currency Converter is a web application built with React.js that allows users to convert between various currencies.",
       DeployLink: "https://vercel.com/aditya-shees-projects/currency-converter",
-      techStack: ["React", "Tailwind CSS"],
-    },
-    {
-      img: "/PasswordGenarator.png",
-      title: "Password Generator",
-      description:
-        "A password generator is a web application built with React.js that allows users to generate unique passwords.",
-      DeployLink: "",
       techStack: ["React", "Tailwind CSS"],
     },
   ];
@@ -132,7 +124,7 @@ const Projects = () => {
                   {project.techStack.map((tech, index) => (
                     <div
                       key={index}
-                      className="bg-white text-black h-[1.6rem] w-[6rem] px-[1rem] text-center rounded-full transition duration-150 hover:-translate-y-1 hover:scale-100">
+                      className="bg-white text-black h-[1.6rem] w-[7rem] px-[1rem] text-center rounded-full transition duration-150 hover:-translate-y-1 hover:scale-100">
                       {tech}
                     </div>
                   ))}
