@@ -70,56 +70,6 @@ const Contact = () => {
           />
         </div>
       </div>
-
-      {/* <div className="min-h-screen flex items-center justify-center px-4 md:w-1/2">
-        <form
-          onSubmit={handleSubmit}
-          className="bg-white rounded-2xl shadow-md p-8 w-full max-w-md">
-          <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">
-            Contact Me
-          </h2>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Your Name"
-            required
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg"
-          />
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Your Email"
-            required
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg"
-          />
-          <input
-            type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            placeholder="Subject"
-            required
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg"
-          />
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            placeholder="Your Message"
-            required
-            className="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg resize-none"
-            rows="5"></textarea>
-          <button
-            type="submit"
-            className="bg-blue-600 hover:bg-blue-700 text-white w-full py-2 rounded-lg transition">
-            Send Message
-          </button>
-        </form>
-      </div> */}
     </section>
   );
 };
