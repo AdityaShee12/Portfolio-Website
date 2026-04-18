@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Skills = () => {
+const TechStack = () => {
   const categories = [
     {
       title: "Programming Language",
@@ -56,32 +56,20 @@ const Skills = () => {
     show: { opacity: 1, scale: 1, y: 0, transition: { type: "spring", stiffness: 120 } },
   };
 
-  // Hover animation for the image elements
-  const floatAnimation = {
-    y: [-5, 5],
-    transition: {
-      duration: 2,
-      repeat: Infinity,
-      repeatType: "reverse",
-      ease: "easeInOut",
-    },
-  };
-
   return (
     <section
-      className="relative min-h-screen bg-transparent pt-24 pb-12 px-6 lg:px-24"
+      id="techstack"
+      className="relative min-h-screen bg-transparent pt-24 pb-12 px-6 lg:px-24 pointer-events-auto"
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/70 backdrop-blur-sm z-0"></div>
-
       <div className="relative z-10 max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">My <span className="text-blue-400">Skills</span></h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">My <span className="text-blue-400">Tech Stack</span></h2>
           <div className="h-1 w-24 bg-blue-500 mx-auto rounded-full"></div>
         </motion.div>
 
@@ -93,7 +81,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.6, delay: 0.1 * index }}
-              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-white/10 transition-colors duration-300"
+              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 md:p-8 hover:bg-blue-900/10 transition-colors duration-300"
             >
               <h3 className="text-2xl font-semibold text-gray-200 mb-6 drop-shadow-md">
                 {category.title}
@@ -116,17 +104,16 @@ const Skills = () => {
                       animate={{
                         y: [-skillIndex % 2 === 0 ? 5 : -5, skillIndex % 2 === 0 ? -5 : 5]
                       }}
-                      transition={{
-                        duration: 2 + (skillIndex % 3) * 0.5,
-                        repeat: Infinity,
-                        repeatType: "reverse",
-                        ease: "easeInOut",
-                      }}
+                       transition={{
+                         duration: 2 + (skillIndex % 3) * 0.5,
+                         repeat: Infinity,
+                         repeatType: "reverse",
+                         ease: "easeInOut",
+                       }}
                       src={skill.img}
                       alt={skill.name}
                       className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                      // Fallback for missing Express.png path issue fix: Some had trailing slash some didn't. Used /
-                      onError={(e) => { e.target.src = "/Vs.png"; e.target.style.display="none" }} // crude fallback
+                      onError={(e) => { e.target.src = "/Vs.png"; e.target.style.display="none" }}
                     />
                     <span className="mt-3 text-xs md:text-sm font-medium text-gray-300 text-center">
                       {skill.name}
@@ -142,4 +129,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default TechStack;
