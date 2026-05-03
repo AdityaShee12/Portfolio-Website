@@ -62,7 +62,7 @@ const ParticleBackground = () => {
       }
 
       draw() {
-        ctx.fillStyle = `rgba(96, 165, 250, ${this.opacity})`; // blue-400 equivalent
+        ctx.fillStyle = `rgba(0, 245, 212, ${this.opacity})`; // aurora-teal
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.closePath();
@@ -142,7 +142,7 @@ const ParticleBackground = () => {
 
     const animate = () => {
       // Clear with slight opacity to create motion trails
-      ctx.fillStyle = 'rgba(2, 6, 23, 0.3)'; // Dark background matching tailwind bg-[#020617]
+      ctx.fillStyle = 'rgba(5, 5, 5, 0.3)'; // Dark background matching obsidian
       ctx.fillRect(0, 0, canvas.width, canvas.height);
       
       for (let i = 0; i < particles.length; i++) {

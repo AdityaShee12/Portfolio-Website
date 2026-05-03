@@ -3,7 +3,6 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 const ProjectCard = ({ project, index }) => {
-  // 3D Tilt Logic
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
@@ -11,19 +10,17 @@ const ProjectCard = ({ project, index }) => {
   const smoothX = useSpring(x, springConfig);
   const smoothY = useSpring(y, springConfig);
 
-  const rotateX = useTransform(smoothY, [-1, 1], [10, -10]);
-  const rotateY = useTransform(smoothX, [-1, 1], [-10, 10]);
+  const rotateX = useTransform(smoothY, [-1, 1], [5, -5]);
+  const rotateY = useTransform(smoothX, [-1, 1], [-5, 5]);
 
   const handlePointerMove = (event) => {
     const rect = event.currentTarget.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
-
     const offsetX = event.clientX - centerX;
     const offsetY = event.clientY - centerY;
-
-    x.set(offsetX / 20); // Sensitivity applied based on cursor
-    y.set(offsetY / 20);
+    x.set(offsetX / 30); 
+    y.set(offsetY / 30);
   };
 
   const handlePointerLeave = () => {
@@ -37,77 +34,68 @@ const ProjectCard = ({ project, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="w-full h-full perspective-[1000px] pointer-events-auto cursor-none group"
-      style={{ perspective: 1000 }}
+      className="w-full perspective-[1500px] pointer-events-auto cursor-none group"
+      style={{ perspective: 1500 }}
     >
       <motion.div
         onPointerMove={handlePointerMove}
         onPointerLeave={handlePointerLeave}
         style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
-        className="w-full h-full flex flex-col justify-between bg-[#111827] rounded-2xl overflow-hidden border border-white/5 relative shadow-lg hover:shadow-[0_0_30px_rgba(37,99,235,0.15)] transition-shadow duration-300 touch-none"
+        className="w-full glass-panel rounded-3xl overflow-hidden relative flex flex-col md:flex-row touch-none"
       >
-        {/* Glow Line Top */}
-        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"></div>
+        <div className="absolute inset-0 bg-gradient-to-tr from-aurora-purple/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
 
-        <div className="flex flex-col flex-grow z-10" style={{ transform: "translateZ(30px)" }}>
-          {/* Image */}
-          {project.img && (
-            <div className="w-full h-48 sm:h-56 overflow-hidden border-b border-white/5">
-              <img
-                src={project.img}
-                alt={project.title}
-                className="w-full h-full object-cover object-top opacity-80 group-hover:opacity-100 transition-all duration-700 group-hover:scale-105"
-              />
-            </div>
-          )}
+        {/* Image Section */}
+        {project.img && (
+          <div className="w-full md:w-1/2 h-64 md:h-auto relative overflow-hidden">
+            <div className="absolute inset-0 bg-obsidian/40 group-hover:bg-transparent transition-colors duration-700 z-10"></div>
+            <img
+              src={project.img}
+              alt={project.title}
+              className="w-full h-full object-cover object-top opacity-90 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-110"
+            />
+          </div>
+        )}
 
-          {/* Texts */}
-          <div className="p-6 flex flex-col flex-grow">
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors duration-300">
-              {project.title}
-            </h3>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">
-              {project.description}
-            </p>
+        {/* Content Section */}
+        <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center relative z-10 bg-obsidian/40 backdrop-blur-sm">
+          <h3 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4 group-hover:text-gradient-aurora transition-all duration-300">
+            {project.title}
+          </h3>
+          <p className="text-gray-400 font-body text-base md:text-lg leading-relaxed mb-8">
+            {project.description}
+          </p>
 
-            {/* Tech Stack Pills */}
-            <div className="flex flex-wrap gap-2 mt-auto">
-              {project.techStack.map((tech, techIndex) => (
-                <span
-                  key={techIndex}
-                  className="px-3 py-1 text-xs font-semibold bg-[#1e293b] text-blue-400 rounded-md border border-blue-500/10 shadow-sm"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+          <div className="flex flex-wrap gap-2 mb-10">
+            {project.techStack.map((tech, techIndex) => (
+              <span
+                key={techIndex}
+                className="px-4 py-1.5 text-xs font-syne font-semibold bg-white/5 text-aurora-teal rounded-full border border-aurora-teal/20"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-6 mt-auto">
+            <a
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 hover:text-white text-gray-400 transition-colors cursor-none text-sm font-syne uppercase tracking-wider font-bold"
+            >
+              <FaGithub size={20} /> Code
+            </a>
+            <a
+              href={project.DeployLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-aurora-teal hover:text-aurora-orange transition-colors cursor-none text-sm font-syne uppercase tracking-wider font-bold"
+            >
+              Live Demo <FaExternalLinkAlt size={16} />
+            </a>
           </div>
         </div>
-
-        {/* Bottom Actions Link Section */}
-        <div 
-          className="w-full border-t border-white/10 px-6 py-4 flex items-center justify-between text-gray-400 bg-[#0f172a]/50"
-          style={{ transform: "translateZ(40px)" }} // Links float further out
-        >
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:text-white transition-colors cursor-none text-sm font-medium"
-          >
-            <FaGithub size={18} /> Code
-          </a>
-          
-          <a
-            href={project.DeployLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 hover:text-blue-400 transition-colors cursor-none text-sm font-medium"
-          >
-            Live <FaExternalLinkAlt size={14} />
-          </a>
-        </div>
-        
       </motion.div>
     </motion.div>
   );
@@ -156,7 +144,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="relative min-h-screen bg-transparent pt-32 pb-24 px-6 lg:px-16 overflow-hidden pointer-events-auto">
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-6xl mx-auto">
         
         {/* Header */}
         <motion.div
@@ -164,14 +152,16 @@ const Projects = () => {
            whileInView={{ opacity: 1, y: 0 }}
            viewport={{ once: true }}
            transition={{ duration: 0.8 }}
-           className="mb-16 text-center"
+           className="mb-20 text-center"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">Featured <span className="text-blue-500">Projects</span></h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full mx-auto"></div>
+          <h2 className="text-5xl md:text-6xl font-heading font-bold text-white mb-4">
+            Selected <span className="text-gradient-aurora">Works</span>
+          </h2>
+          <p className="text-gray-400 font-body text-lg max-w-2xl mx-auto">Explore some of my recent projects, showcasing my expertise in web development.</p>
         </motion.div>
 
-        {/* CSS Grid for Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch pt-4">
+        {/* Projects List */}
+        <div className="flex flex-col gap-16">
           {projects.map((project, index) => (
              <ProjectCard key={index} project={project} index={index} />
           ))}

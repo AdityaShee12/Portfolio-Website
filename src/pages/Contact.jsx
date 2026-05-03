@@ -32,13 +32,12 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="relative min-h-screen bg-transparent pt-32 pb-24 px-6 lg:px-16 flex items-center justify-center pointer-events-auto"
-    >
-      <div className="absolute inset-0 bg-black/80 backdrop-blur-sm z-0 pointer-events-none"></div>
-
-      <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-8 bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-12 shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-md">
+    <section id="contact" className="relative min-h-screen bg-transparent pt-32 pb-24 px-6 lg:px-16 flex items-center justify-center pointer-events-auto">
+      <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-8 glass-panel rounded-3xl p-8 lg:p-12 overflow-hidden">
+        
+        {/* Decorative Blur */}
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-aurora-purple/20 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[300px] h-[300px] bg-aurora-teal/10 blur-[100px] rounded-full mix-blend-screen pointer-events-none"></div>
 
         {/* Left Side: Contact Info */}
         <motion.div
@@ -46,69 +45,71 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="w-full lg:w-5/12 flex flex-col justify-between"
+          className="w-full lg:w-5/12 flex flex-col justify-between relative z-10"
         >
           <div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-              Get in <span className="text-blue-400">Touch</span>
+            <h2 className="text-5xl lg:text-6xl font-heading font-bold text-white mb-6">
+              Let's <span className="text-gradient-aurora">Connect</span>
             </h2>
-            <p className="text-gray-300 text-lg mb-10 leading-relaxed max-w-md">
+            <p className="text-gray-400 font-body text-lg mb-12 leading-relaxed max-w-md">
               Have a project in mind or simply want to say hi? I'd love to hear from you. Drop a message below and I'll get back to you as soon as possible.
             </p>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
               <div className="flex items-center gap-6 group">
-                <div className="w-14 h-14 rounded-full bg-blue-600/20 text-blue-400 flex items-center justify-center text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(37,99,235,0.2)]">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 text-aurora-teal flex items-center justify-center text-2xl group-hover:bg-aurora-teal group-hover:text-obsidian transition-all duration-300 shadow-lg">
                   <FaEnvelope />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Email</p>
-                  <a href="mailto:sheeaditya12@gmail.com" className="text-white text-lg hover:text-blue-300 transition-colors cursor-none">
+                  <p className="text-sm font-syne text-gray-500 uppercase tracking-widest mb-1">Email</p>
+                  <a href="mailto:sheeaditya12@gmail.com" className="text-white font-body text-lg hover:text-aurora-teal transition-colors cursor-none">
                     sheeaditya12@gmail.com
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-6 group">
-                <div className="w-14 h-14 rounded-full bg-blue-600/20 text-blue-400 flex items-center justify-center text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(37,99,235,0.2)]">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 text-aurora-purple flex items-center justify-center text-2xl group-hover:bg-aurora-purple group-hover:text-white transition-all duration-300 shadow-lg">
                   <FaPhone />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Phone</p>
-                  <a href="tel:+918910384698" className="text-white text-lg hover:text-blue-300 transition-colors cursor-none">
+                  <p className="text-sm font-syne text-gray-500 uppercase tracking-widest mb-1">Phone</p>
+                  <a href="tel:+918910384698" className="text-white font-body text-lg hover:text-aurora-purple transition-colors cursor-none">
                     +91 89103 84698
                   </a>
                 </div>
               </div>
 
               <div className="flex items-center gap-6 group">
-                <div className="w-14 h-14 rounded-full bg-blue-600/20 text-blue-400 flex items-center justify-center text-2xl group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-[0_0_15px_rgba(37,99,235,0.2)]">
+                <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 text-aurora-orange flex items-center justify-center text-2xl group-hover:bg-aurora-orange group-hover:text-obsidian transition-all duration-300 shadow-lg">
                   <FaMapMarkerAlt />
                 </div>
                 <div>
-                  <p className="text-sm text-gray-400">Location</p>
-                  <p className="text-white text-lg">South 24 Parganas, WB</p>
+                  <p className="text-sm font-syne text-gray-500 uppercase tracking-widest mb-1">Location</p>
+                  <p className="text-white font-body text-lg">South 24 Parganas, WB</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-white/10 flex gap-6 flex-wrap">
-            <a href="https://github.com/AdityaShee12" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
-              <FaGithub />
-            </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
-              <FaLinkedin />
-            </a>
-            <a href="https://wa.me/8910384698" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
-              <FaWhatsapp />
-            </a>
-            <a href="https://www.instagram.com/astrixio.digital" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
-              <FaInstagram />
-            </a>
-            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
-              <FaXTwitter />
-            </a>
+          <div className="mt-16 flex gap-4 flex-wrap">
+            {[ 
+              { icon: FaGithub, link: "https://github.com/AdityaShee12" },
+              { icon: FaLinkedin, link: "https://linkedin.com" },
+              { icon: FaWhatsapp, link: "https://wa.me/8910384698" },
+              { icon: FaInstagram, link: "https://www.instagram.com/astrixio.digital" },
+              { icon: FaXTwitter, link: "https://x.com" }
+            ].map((social, i) => (
+              <a 
+                key={i} 
+                href={social.link} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-12 h-12 rounded-full bg-obsidian border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:border-aurora-teal hover:shadow-[0_0_15px_rgba(0,245,212,0.3)] transition-all duration-300 text-xl cursor-none"
+              >
+                <social.icon />
+              </a>
+            ))}
           </div>
         </motion.div>
 
@@ -118,82 +119,77 @@ const Contact = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full lg:w-7/12 bg-black/40 rounded-2xl p-8 lg:p-10 border border-white/5"
+          className="w-full lg:w-7/12 relative z-10"
         >
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-sm text-gray-300 font-medium">Your Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-500 cursor-none"
-                  placeholder="John Doe"
-                />
+          <div className="bg-obsidian/60 backdrop-blur-sm rounded-3xl p-8 lg:p-10 border border-white/5 shadow-2xl">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="relative group">
+                  <input
+                    type="text" id="name" name="name"
+                    value={formData.name} onChange={handleChange} required
+                    className="w-full bg-transparent border-b border-white/20 py-3 text-white focus:outline-none focus:border-aurora-teal transition-colors peer placeholder-transparent cursor-none"
+                    placeholder="Name"
+                  />
+                  <label htmlFor="name" className="absolute left-0 -top-3.5 text-gray-500 text-sm font-syne transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-aurora-teal peer-focus:text-sm">
+                    Your Name
+                  </label>
+                </div>
+                
+                <div className="relative group">
+                  <input
+                    type="email" id="email" name="email"
+                    value={formData.email} onChange={handleChange} required
+                    className="w-full bg-transparent border-b border-white/20 py-3 text-white focus:outline-none focus:border-aurora-teal transition-colors peer placeholder-transparent cursor-none"
+                    placeholder="Email"
+                  />
+                  <label htmlFor="email" className="absolute left-0 -top-3.5 text-gray-500 text-sm font-syne transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-aurora-teal peer-focus:text-sm">
+                    Your Email
+                  </label>
+                </div>
               </div>
-              <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-sm text-gray-300 font-medium">Your Email</label>
+
+              <div className="relative group mt-10">
                 <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-500 cursor-none"
-                  placeholder="john@example.com"
+                  type="text" id="subject" name="subject"
+                  value={formData.subject} onChange={handleChange} required
+                  className="w-full bg-transparent border-b border-white/20 py-3 text-white focus:outline-none focus:border-aurora-teal transition-colors peer placeholder-transparent cursor-none"
+                  placeholder="Subject"
                 />
+                <label htmlFor="subject" className="absolute left-0 -top-3.5 text-gray-500 text-sm font-syne transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-aurora-teal peer-focus:text-sm">
+                  Subject
+                </label>
               </div>
-            </div>
 
-            <div className="flex flex-col gap-2">
-              <label htmlFor="subject" className="text-sm text-gray-300 font-medium">Subject</label>
-              <input
-                type="text"
-                id="subject"
-                name="subject"
-                value={formData.subject}
-                onChange={handleChange}
-                required
-                className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-500 cursor-none"
-                placeholder="How can I help you?"
-              />
-            </div>
+              <div className="relative group mt-10">
+                <textarea
+                  id="message" name="message"
+                  value={formData.message} onChange={handleChange} required rows="4"
+                  className="w-full bg-transparent border-b border-white/20 py-3 text-white focus:outline-none focus:border-aurora-teal transition-colors peer placeholder-transparent resize-none cursor-none"
+                  placeholder="Message"
+                ></textarea>
+                <label htmlFor="message" className="absolute left-0 -top-3.5 text-gray-500 text-sm font-syne transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-aurora-teal peer-focus:text-sm">
+                  Your Message
+                </label>
+              </div>
 
-            <div className="flex flex-col gap-2">
-              <label htmlFor="message" className="text-sm text-gray-300 font-medium">Your Message</label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                rows="5"
-                className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder:text-gray-500 resize-none cursor-none"
-                placeholder="Write your message here..."
-              ></textarea>
-            </div>
-
-            <button
-              type="submit"
-              disabled={status === "sending"}
-              className={`w-full py-4 rounded-xl text-white font-bold text-lg transition-all duration-300 cursor-none ${status === "sending"
-                ? "bg-blue-600/50 cursor-not-allowed"
-                : status === "success"
-                  ? "bg-green-500 hover:bg-green-600"
-                  : status === "error"
-                    ? "bg-red-500 hover:bg-red-600"
-                    : "bg-blue-600 hover:bg-blue-700 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:-translate-y-1"
+              <button
+                type="submit"
+                disabled={status === "sending"}
+                className={`w-full py-4 mt-8 rounded-full text-obsidian font-syne font-bold text-lg transition-all duration-300 cursor-none relative overflow-hidden group ${
+                  status === "sending" ? "bg-aurora-teal/50 cursor-not-allowed" : 
+                  status === "success" ? "bg-green-400" : 
+                  status === "error" ? "bg-red-400" : 
+                  "bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:-translate-y-1"
                 }`}
-            >
-              {status === "sending" ? "Sending..." : status === "success" ? "Message Sent!" : status === "error" ? "Failed to Send" : "Send Message"}
-            </button>
-          </form>
+              >
+                {status === "sending" ? "Sending..." : status === "success" ? "Message Sent!" : status === "error" ? "Failed to Send" : "Send Message"}
+              </button>
+            </form>
+          </div>
         </motion.div>
+
       </div>
     </section>
   );

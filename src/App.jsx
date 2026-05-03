@@ -37,7 +37,7 @@ const CustomCursor = () => {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-blue-500 rounded-full pointer-events-none z-[9999] shadow-[0_0_10px_#3b82f6]"
+        className="fixed top-0 left-0 w-2 h-2 bg-aurora-teal rounded-full pointer-events-none z-[9999] shadow-[0_0_10px_#00F5D4]"
         style={{
           x: cursorX,
           y: cursorY,
@@ -47,7 +47,7 @@ const CustomCursor = () => {
         }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-blue-400 pointer-events-none z-[9998] shadow-[0_0_20px_rgba(96,165,250,0.5)] bg-blue-500/10 backdrop-blur-[1px]"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-aurora-purple/50 pointer-events-none z-[9998] shadow-[0_0_20px_rgba(123,44,191,0.5)] bg-aurora-purple/10 backdrop-blur-[1px]"
         style={{
           x: cursorXSpring,
           y: cursorYSpring,
@@ -84,7 +84,16 @@ function App() {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen overflow-x-hidden bg-[#020617] text-white selection:bg-blue-500/30 font-sans">
+    <div className="relative w-full min-h-screen">
+      {/* Noise Overlay */}
+      <div className="fixed inset-0 z-50 noise-overlay pointer-events-none"></div>
+
+      {/* Aurora Background Blobs */}
+      <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-aurora-purple/20 blur-[120px] animate-aurora-pan mix-blend-screen"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full bg-aurora-teal/10 blur-[120px] animate-aurora-pan mix-blend-screen" style={{ animationDelay: '2s' }}></div>
+      </div>
+
       <CustomCursor />
       <ParticleBackground />
 
