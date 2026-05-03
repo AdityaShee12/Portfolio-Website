@@ -21,6 +21,7 @@ const TechStack = () => {
       items: [
         { name: "Express.js", img: "/Express.png" },
         { name: "Tailwind CSS", img: "/Tailwind.png" },
+        { name: "Next.js", img: "/Next.js.png" },
       ],
     },
     {
@@ -104,16 +105,16 @@ const TechStack = () => {
                       animate={{
                         y: [-skillIndex % 2 === 0 ? 5 : -5, skillIndex % 2 === 0 ? -5 : 5]
                       }}
-                       transition={{
-                         duration: 2 + (skillIndex % 3) * 0.5,
-                         repeat: Infinity,
-                         repeatType: "reverse",
-                         ease: "easeInOut",
-                       }}
+                      transition={{
+                        duration: 2 + (skillIndex % 3) * 0.5,
+                        repeat: Infinity,
+                        repeatType: "reverse",
+                        ease: "easeInOut",
+                      }}
                       src={skill.img}
                       alt={skill.name}
                       className="w-12 h-12 md:w-16 md:h-16 object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]"
-                      onError={(e) => { e.target.src = "/Vs.png"; e.target.style.display="none" }}
+                      onError={(e) => { e.target.src = "/Vs.png"; e.target.style.display = "none" }}
                     />
                     <span className="mt-3 text-xs md:text-sm font-medium text-gray-300 text-center">
                       {skill.name}

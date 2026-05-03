@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaGithub, FaLinkedin, FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { motion } from "framer-motion";
 import axios from "axios";
 
@@ -38,9 +39,9 @@ const Contact = () => {
       <div className="absolute inset-0 bg-black/80 backdrop-blur-sm z-0 pointer-events-none"></div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-8 bg-white/5 border border-white/10 rounded-3xl p-8 lg:p-12 shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-md">
-        
+
         {/* Left Side: Contact Info */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -92,18 +93,27 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-white/10 flex gap-6">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
+          <div className="mt-12 pt-8 border-t border-white/10 flex gap-6 flex-wrap">
+            <a href="https://github.com/AdityaShee12" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
               <FaGithub />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
               <FaLinkedin />
             </a>
+            <a href="https://wa.me/8910384698" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
+              <FaWhatsapp />
+            </a>
+            <a href="https://www.instagram.com/astrixio.digital" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
+              <FaInstagram />
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-black/40 border border-white/10 flex items-center justify-center text-gray-300 hover:text-white hover:border-blue-500 hover:bg-blue-900/40 transition-all duration-300 text-2xl cursor-none">
+              <FaXTwitter />
+            </a>
           </div>
         </motion.div>
 
         {/* Right Side: Contact Form */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
@@ -171,15 +181,14 @@ const Contact = () => {
             <button
               type="submit"
               disabled={status === "sending"}
-              className={`w-full py-4 rounded-xl text-white font-bold text-lg transition-all duration-300 cursor-none ${
-                status === "sending" 
-                  ? "bg-blue-600/50 cursor-not-allowed" 
-                  : status === "success"
+              className={`w-full py-4 rounded-xl text-white font-bold text-lg transition-all duration-300 cursor-none ${status === "sending"
+                ? "bg-blue-600/50 cursor-not-allowed"
+                : status === "success"
                   ? "bg-green-500 hover:bg-green-600"
                   : status === "error"
-                  ? "bg-red-500 hover:bg-red-600"
-                  : "bg-blue-600 hover:bg-blue-700 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:-translate-y-1"
-              }`}
+                    ? "bg-red-500 hover:bg-red-600"
+                    : "bg-blue-600 hover:bg-blue-700 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:-translate-y-1"
+                }`}
             >
               {status === "sending" ? "Sending..." : status === "success" ? "Message Sent!" : status === "error" ? "Failed to Send" : "Send Message"}
             </button>
